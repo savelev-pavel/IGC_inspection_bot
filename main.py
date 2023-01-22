@@ -34,5 +34,8 @@ def arshin_step2(message: str):
     markup = types.ReplyKeyboardRemove(selective=False)
     bot.send_message(message.chat.id, text=f'Ссылка на страницу прибора в Аршин\n '
                                            f'{arshin_page}', reply_markup=markup)
-
-bot.polling(none_stop=True)
+while True:
+    try:
+        bot.polling(none_stop=True)
+    except Exception:
+        continue
